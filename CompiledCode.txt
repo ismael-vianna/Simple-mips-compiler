@@ -1,4 +1,5 @@
 # Exemplo do código compilado:
+Cada linha representa uma célula da memória.
 mem(0)      <= "00011100";
 mem(1)      <= "01100010";
 mem(2)      <= "00011000";
