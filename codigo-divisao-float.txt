@@ -1,0 +1,16 @@
+a:li s1 10
+b:li s2 3
+um:li s4 1
+cont:li s5 15
+valor_float:div s6 s1 s2
+desloca_inteiro:sll s6 s6 16
+resto:rem s3 s1 s2
+desloca_resto:sll s3 s3 1
+while_verifica_begin:blt s3 s2 desloca
+seta_um:spat s6 s5 1
+sub s3 s3 s2
+desloca:sll s3 s3 1
+decrementa_um:beq s5 s0 fim
+sub s5 s5 s4
+while_verifica_end:jmp while_verifica_begin
+fim:halt

@@ -1,0 +1,50 @@
+﻿Programas:
+-- alterando a posicao 3 do registrador S1. O resultado deve ser 10
+li s1 2
+li s2 3
+spat s1 s2 1
+halt
+
+-- alterando a posicao 3 do registrador S1. O resultado deve ser 10
+li s1 2
+spati s1 3 1
+halt
+
+--testando jump e condicional beq
+add s3 s3 s2
+jmp teste
+sair:halt
+teste:beq s3 s2 sair
+
+-- Número ao quadrado, ou pode ser usado para multiplicação de numeros diferentes. Faz somatórios.
+add s3 s3 s2
+add s4 s4 s1
+quadrado:add s4 s4 s1
+add s3 s3 s2
+beq s4 s2 sair
+jmp quadrado
+sair:halt
+
+-- Calcula endereço e salva o número 4 na posição (81+5)=86 da memória. Obs.: Ocupará posições 86, 87, 88 e 89 na memória.
+add s3 s3 s7
+quadrado:add s4 s4 s7
+add s3 s3 s7
+beq s4 s7 sair 
+jmp quadrado
+sair:sw s2 (5)s3
+halt
+
+-- Calcula número, salva na memória (endereço 103). Lê este número da memória e soma com outro valor e executa um xor e and.
+add s3 s2 s2
+sw s3 (103)s0 1000
+add s3 s3 s1
+add s3 s3 s1  1010
+lws s4 (103)s0 s3 10010
+xor s5 s4 s3 11000
+xor s5 s5 s2 11100
+add s6 s6 s1
+add s6 s6 s1    10
+xor s5 s5 s6 11110
+xor s5 s5 s1 11111
+and s7 s5 s2   100
+halt
